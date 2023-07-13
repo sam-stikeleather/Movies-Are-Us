@@ -1,0 +1,21 @@
+{
+  "name": "movies-are-us",
+  "version": "1.0.0",
+  "description": "Group Project 2 Sam Austin Jessica",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam-stikeleather/Movies-Are-Us.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sam-stikeleather/Movies-Are-Us/issues"
+  },
+  "homepage": "https://github.com/sam-stikeleather/Movies-Are-Us#readme"
+}
