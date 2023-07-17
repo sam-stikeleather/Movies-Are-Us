@@ -14,3 +14,16 @@ const ratingData = [
         rating: 'Rated R',
     },
 ]
+
+async function seedRatings() {
+    try {
+      await Movie.bulkCreate(ratingData);
+      console.log('Ratings seeded successfully!');
+    } catch (error) {
+      console.error('Error seeding ratings:', error);
+    } finally {
+      process.exit();
+    }
+  }
+  
+  seedRatings();
