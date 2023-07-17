@@ -13,4 +13,21 @@ $(documnt).ready(function()) {
 
     var html = template(context);
     $(".post")
-}
+};
+
+$(documnt).ready(function()) {
+
+    var source = $("#rating-template").html();
+    var template = Handlebars.complie(source);
+
+    var source = $().html();
+    var template = Handlebars.complie(source)
+
+
+    Handlebars.registerHelper('rating'), function(type) {
+        return score.type + " " 
+    };
+
+    var html = template(context);
+    $(".post")
+};
