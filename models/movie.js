@@ -24,7 +24,11 @@ Movie.init(
       defaultValue: DataTypes.NOW,
     },
     rating: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'rating',
+        key: 'id',
+      },
     },
   },
   {
