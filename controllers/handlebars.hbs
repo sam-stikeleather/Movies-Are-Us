@@ -64,4 +64,7 @@ var scores = {
 $(document).ready(funtion(){
     var score.Template = $("#score-template").html();
 
+    var compiledScoreTemplate = Handlebars.compile(scoreTemplate);
+    console.log(compiledScoreTemplate());
+    $(".score-list-containter").html(compiledScoreTemplate*())
 };
