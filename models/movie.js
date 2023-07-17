@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Movie extends Model {}
-
+// Initialize the model
 Movie.init(
   {
     id: {
@@ -24,7 +24,11 @@ Movie.init(
       defaultValue: DataTypes.NOW,
     },
     rating: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'rating',
+        key: 'id',
+      },
     },
   },
   {
