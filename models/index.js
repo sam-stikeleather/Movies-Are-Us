@@ -1,4 +1,4 @@
-const Rating = require('./rating');
+// const Rating = require('./rating');
 const Movie = require('./movie');
 
 Movie.belongsTo(Rating, {
