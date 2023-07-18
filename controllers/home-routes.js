@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 
 // GET one movie
 // Use the custom middleware before allowing the user to access the gallery
-router.get('/movie/:id', withAuth, async (req, res) => {
+router.get('/movie/:id', async (req, res) => {
   try {
     const dbMovieData = await Movie.findByPk(req.params.id);
 
@@ -34,7 +34,7 @@ router.get('/movie/:id', withAuth, async (req, res) => {
     }
 
     const movie = dbMovieData.get({ plain: true });
-    res.render('gallery', { movie, loggedIn: req.session.loggedIn });
+    res.render('movies', { movie, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

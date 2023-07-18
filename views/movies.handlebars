@@ -7,30 +7,29 @@
       <th>Rating</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="movie-table-body">
     {{#each movies}}
-      <tr>
-        <td>{{title}}</td>
-        <td>{{release_date}}</td>
-        <td>{{genre}}</td>
-        <td>{{rating}}</td>
-      </tr>
+      {{> movie-partial}}
     {{/each}}
   </tbody>
 </table>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'seeds/movieData.json', true);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        var data = JSON.parse(xhr.responseText);
-        var template = Handlebars.compile(document.getElementById('movie-template').innerHTML);
-        var html = template({ movies: data });
-        document.getElementById('movie-table').getElementsByTagName('tbody')[0].innerHTML = html;
-      }
-    };
-    xhr.send();
-  });
+document.addEventListener('DOMContentLoaded', function () {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'seeds/movieData.json', true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var data = JSON.parse(xhr.responseText);
+      var tableBody = document.getElementById('movie-table-body');
+      var moviePartial = Handlebars.compile(
+        document.getElementById('movie-partial').innerHTML
+      );
+      data.forEach(function (movie) {
+        tableBody.innerHTML += moviePartial(movie);
+      });
+    }
+  };
+  xhr.send();
+});
 </script>
