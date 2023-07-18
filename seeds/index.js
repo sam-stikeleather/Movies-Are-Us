@@ -3,13 +3,18 @@ const seedMovies = require('./movieData');
 const seedRating = require('./ratingData');
 
 const seedAll = async () => {
-  await sequelize.sync({ force: true });
+  try {
+    await sequelize.sync({ force: false });
+    console.log('Database synchronized successfully.');
 
-  await seedMovies();
+    await seedRating();
+    await seedMovies();
 
-  await seedRating();
-
-  process.exit(0);
+    process.exit(0);
+  } catch (error) {
+    console.error('Error seeding data:', error);
+    process.exit(1);
+  }
 };
 
 seedAll();
