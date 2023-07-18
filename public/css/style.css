@@ -1,0 +1,55 @@
+/* should style the entire login page
+.login-container {
+ width: ;
+ margin: ;
+ padding: ;
+ border: ;   
+ background-color: ;
+}
+
+login button
+.login-button {
+    width: 100%;
+    background-color: ;
+    color: ;
+    cursor: pointer;
+
+}*/
+
+.row {
+    display: ;
+    justify-content: center;
+}
+
+.login-card {
+    width: ;
+    padding: ;
+    background-color: ;
+}
+
+.page-title {
+    font-size: ;
+    text-align:center
+}
+
+.form-group {
+    margin-bottom: ;
+}
+
+label {
+    display: ;
+}
+
+.btn-primary {
+    display: ;
+    padding:0%;
+    background-color: ;
+    color: ;
+    cursor: pointer;
+}
+
+
+
+
+
+
