@@ -6,19 +6,22 @@ const withAuth = require('../utils/auth');
 // GET all movies for home page
 router.get('/', async (req, res) => {
   try {
-    const dbMovieData = await Movie.findAll();
-
-    const movies = dbMovieData.map((movie) =>
-      movie.get({ plain: true })
-    );
-
-    res.render('homepage', {
-      movies,
-      loggedIn: req.session.loggedIn,
-    });
+    const movies = await Movie.findAll();
+    console.log('Movies', movies);
+    res.render('movies', { movies });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
+  }
+});
+
+router.get('/api/movies', async (req, res) => {
+  try {
+    const movies = await Movie.findAll();
+    res.json(movies);
+  } catch (err) {
+    console.error('Error fetching movies:', err);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 
@@ -52,3 +55,13 @@ router.get('/login', (req, res) => {
 });
 
 module.exports = router;
+
+router.get('/test', async (req, res) => {
+  try {
+    const movies = await Movie.findAll();
+    res.json(movies);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
