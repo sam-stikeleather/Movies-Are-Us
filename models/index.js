@@ -1,14 +1,14 @@
-const Rating = require('./Rating');
+// const Rating = require('./rating');
 const Movie = require('./movie');
 
-Movie.belongsTo(Rating, {
-  foreignKey: 'rating_id',
-  as: 'movie_rating'
-});
+// Movie.belongsTo(Rating, {
+//   foreignKey: 'rating_id',
+//   as: 'movie_rating'
+// });
 
-Rating.hasMany(Movie, {
-  foreignKey: 'rating_id',
-  onDelete: 'CASCADE',
-});
+// Rating.hasMany(Movie, {
+//   foreignKey: 'rating_id',
+//   onDelete: 'CASCADE',
+// });
 
-module.exports = { Rating, Movie };
+module.exports = { Movie };

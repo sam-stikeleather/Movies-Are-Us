@@ -24,12 +24,9 @@ Movie.init(
       defaultValue: DataTypes.NOW,
     },
     rating: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'rating',
-        key: 'id',
-      },
-    },
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   },
   {
     sequelize,
