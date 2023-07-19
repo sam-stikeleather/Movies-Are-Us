@@ -19,6 +19,21 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/profile', async (req, res) => {
+  try {
+    const dbMoviesData = await Movie.findAll();
+
+    const movies = dbMoviesData.map((movie) => movie.get({ plain: true }));
+    
+    console.log(movies)
+
+    res.render('profile', { movies }); // ensure that you have a homepage view in your views directory
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // GET one movie
 // Use the custom middleware before allowing the user to access the gallery
 router.get('/movie/:id', async (req, res) => {
