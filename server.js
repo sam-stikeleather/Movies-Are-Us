@@ -8,6 +8,9 @@ const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+const viewsPath = path.join(__dirname, 'views');
+const partialsPath = path.join(viewsPath, 'partials');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -32,8 +35,10 @@ const sess = {
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
-app.engine('handlebars', hbs.engine);
+app.engine('handlebars', exphbs({defaultLayout: 'main',partialsDir: partialsPath,}));
 app.set('view engine', 'handlebars');
+app.set('views', viewsPath);
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

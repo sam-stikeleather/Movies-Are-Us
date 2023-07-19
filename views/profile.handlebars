@@ -18,7 +18,7 @@
     <tbody id="movie-table-body">
         {{#each movies}}
         <tr>
-        <td>{{title}}</td>
+        <td><a href="movie-partial/{{this.id}}">{{title}}</a></td>
         <td>{{release_date}}</td>
         <td>{{genre}}</td>
         <td>{{rating}}</td>
