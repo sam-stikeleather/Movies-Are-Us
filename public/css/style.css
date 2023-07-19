@@ -1,0 +1,62 @@
+.login-card {
+    background-color: rgba((0, 0, 0, 0.7), green, blue, alpha);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px;
+}
+
+.title {
+    color: #000099 
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.label {
+    color:whitesmoke
+    font-size: 15px;
+}
+
+.input {
+    background-color: rgba(255, 255, 255, 0.2); 
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.button.is-primary {
+    background-color: #0000ff;
+    border: none;
+    border: radius 5px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button.is-primary:hover {
+    background-color: aqua;
+}
+
+.field:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .login-form, .sign-up-form {
+    position: relative;
+    z-index: 2;
+  }
+
+  .login-card::before {
+    content: "";
+    position:absolute
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+    background: url('');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1;
+}
