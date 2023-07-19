@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     movies = data.movies;
 
     var movieTableTemplate = Handlebars.compile(
-      document.getElementById('movie-table-template').innerHTML
+      document.getElementById('movie-table').innerHTML
     );
     var html = movieTableTemplate({ movies: movies });
-    document.getElementById('movie-table-body').innerHTML = html;
+    document.getElementById('movie-table').innerHTML = html;
 
     // Add click event listeners to sortable buttons
     var sortableButtons = document.querySelectorAll('.sortable');
@@ -52,3 +52,26 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Error fetching movie data:', error);
     });
 });
+
+async function newFormHandler(event) {
+  event.preventDefault();
+  const has_watched = document.querySelector('#has_seen:checked') ? true : false;
+  // Send fetch request to add a new dish
+  const response = await fetch(`/home-routes`, {
+    method: 'POST',
+    body: JSON.stringify({
+      has_watched,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  //if the dish is added, the 'all' template will be rerendered
+  if (response.ok) {
+    document.location.replace('/profile');
+  } else {
+    alert('Failed to add to Watched list');
+  }
+}
+
+document.querySelector('.has-seen-form').addEventListener('submit', newFormHandler);

@@ -26,7 +26,11 @@ Movie.init(
     rating: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    has_seen: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
   },
   {
     sequelize,

@@ -2,6 +2,11 @@
   <a href="/movie/{{movie.id}}">
   <header>{{movie.title}}</header></a>
   <p>{{movie.genre}}<br>{{movie.rating}}</p>
+      {{#if has_seen}}
+      <p class="has-seen">
+        Previously Watched
+      </p>
+    {{/if}}
 </section>
 
 <form class="has_seen_form">
