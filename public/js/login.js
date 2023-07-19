@@ -25,11 +25,12 @@ const loginFormHandler = async (event) => {
     const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
+    const age = document.querySelector('#age-signup').value.trim();  // Add this line
   
-    if (username && email && password) {
+    if (username && email && password && age) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ username, email, password, age }),  // Include age here
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -40,6 +41,7 @@ const loginFormHandler = async (event) => {
       }
     }
   };
+  
   
   document
     .querySelector('.login-form')

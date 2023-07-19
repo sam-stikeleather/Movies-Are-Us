@@ -1,3 +1,24 @@
-{{#each movies as |movie|}}
-{{> movie-partial}}
-{{/each}}
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Release Date</th>
+            <th>Genre</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody id="movie-table-body">
+    </tbody>
+</table>
+
+<script id="movie-partial" type="text/x-handlebars-template">
+    <tr>
+        <td>{{title}}</td>
+        <td>{{release_date}}</td>
+        <td>{{genre}}</td>
+        <td>{{rating}}</td>
+    </tr>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+<script src="/js/movies.js"></script>

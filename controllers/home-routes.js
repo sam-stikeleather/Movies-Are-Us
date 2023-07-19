@@ -6,22 +6,14 @@ const withAuth = require('../utils/auth');
 // GET all movies for home page
 router.get('/', async (req, res) => {
   try {
-    const movies = await Movie.findAll();
-    console.log('Movies', movies);
-    res.render('movies', { movies });
+    const dbMoviesData = await Movie.findAll();
+
+    const movies = dbMoviesData.map((movie) => movie.get({ plain: true }));
+
+    res.render('homepage', { movies }); // ensure that you have a homepage view in your views directory
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
-  }
-});
-
-router.get('/api/movies', async (req, res) => {
-  try {
-    const movies = await Movie.findAll();
-    res.json(movies);
-  } catch (err) {
-    console.error('Error fetching movies:', err);
-    res.status(500).json({ message: 'Internal server error' });
   }
 });
 

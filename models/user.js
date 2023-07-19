@@ -32,7 +32,7 @@ User.init(
     },
 
     age: {
-        type: DATAtypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
 
