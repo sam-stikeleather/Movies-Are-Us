@@ -9,6 +9,8 @@ router.get('/', async (req, res) => {
     const dbMoviesData = await Movie.findAll();
 
     const movies = dbMoviesData.map((movie) => movie.get({ plain: true }));
+    
+    console.log(movies)
 
     res.render('homepage', { movies }); // ensure that you have a homepage view in your views directory
   } catch (err) {

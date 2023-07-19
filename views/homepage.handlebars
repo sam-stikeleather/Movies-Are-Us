@@ -8,17 +8,18 @@
         </tr>
     </thead>
     <tbody id="movie-table-body">
-    </tbody>
-</table>
-
-<script id="movie-partial" type="text/x-handlebars-template">
-    <tr>
+        {{#each movies}}
+        <tr>
         <td>{{title}}</td>
         <td>{{release_date}}</td>
         <td>{{genre}}</td>
         <td>{{rating}}</td>
     </tr>
-</script>
+    {{/each}}
+
+    </tbody>
+</table>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 <script src="/js/movies.js"></script>
