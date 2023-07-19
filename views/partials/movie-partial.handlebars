@@ -1,8 +1,5 @@
-<script id="movie-partial" type="text/x-handlebars-template">
-  <tr>
-    <td>{{title}}</td>
-    <td>{{release_date}}</td>
-    <td>{{genre}}</td>
-    <td>{{rating}}</td>
-  </tr>
-</script>
+<section class="card">
+  <a href="/movie/{{movie.id}}">
+  <header>{{movie.title}}</header></a>
+  <p>{{movie.genre}}<br>{{movie.rating}}</p>
+</section>
