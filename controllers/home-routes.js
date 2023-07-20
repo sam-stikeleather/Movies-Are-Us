@@ -92,14 +92,20 @@ router.get('/test', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
-  try { 
-    const has_seen = await Movie.create({
-    has_seen: req.body.has_seen,
-  });
-  // if the has_seen parameter is successfully created, the new response will be returned as json
-  res.status(200).json(has_seen)
-} catch (err) {
-  res.status(400).json(err);
-}
+router.post('/has_seen', async (req, res) => {
+  try {
+    const movie = await Movie.findOneAndUpdate(
+      { _id: req.body.movieId },
+      { has_seen: req.body.has_seen },
+      { new: true }
+    );
+
+    if (!movie) {
+      return res.status(404).json({ message: 'Movie not found' });
+    }
+
+    res.status(200).json(movie);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
