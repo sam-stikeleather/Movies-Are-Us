@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Movie } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try { 
     const addData = await Movie.create({
     title: req.body.title,
@@ -17,7 +18,7 @@ router.post('/', async (req, res) => {
 }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
       const movies = await Movie.findAll();
       res.json(movies);

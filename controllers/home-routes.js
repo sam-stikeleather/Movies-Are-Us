@@ -12,14 +12,14 @@ router.get('/', async (req, res) => {
     
     console.log(movies)
 
-    res.render('homepage', { movies, loggedIn: req.session.logged_in  });
+    res.render('profile', { movies, loggedIn: req.session.logged_in  });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     const dbMoviesData = await Movie.findAll();
 
@@ -34,7 +34,7 @@ router.get('/profile', async (req, res) => {
   }
 });
 
-router.get('/movie-partial/:id', async (req, res) => {
+router.get('/movie-partial/:id', withAuth, async (req, res) => {
   try {
     const dbMovieData = await Movie.findByPk(req.params.id)
 
@@ -55,7 +55,7 @@ router.get('/movie-partial/:id', async (req, res) => {
 
 // GET one movie
 // Use the custom middleware before allowing the user to access the gallery
-router.get('/movie/:id', async (req, res) => {
+router.get('/movie/:id', withAuth, async (req, res) => {
   try {
     const dbMovieData = await Movie.findByPk(req.params.id);
 
@@ -93,7 +93,7 @@ router.get('/test', async (req, res) => {
   }
 });
 
-router.post('/has_seen', async (req, res) => {
+router.post('/has_seen', withAuth, async (req, res) => {
   try {
     const { movieId, has_seen } = req.body;
 
@@ -114,7 +114,7 @@ router.post('/has_seen', async (req, res) => {
 });
 
 
-router.get('/add', (req, res) => {
+router.get('/add', withAuth, (req, res) => {
   if (req.session.logged_in) {
   res.render('partials/add',{loggedIn: req.session.logged_in });
 }});
