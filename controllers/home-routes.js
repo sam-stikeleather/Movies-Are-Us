@@ -51,6 +51,8 @@ router.get('/movie-partial/:id', async (req, res) => {
   }
 });
 
+
+
 // GET one movie
 // Use the custom middleware before allowing the user to access the gallery
 router.get('/movie/:id', async (req, res) => {
@@ -102,4 +104,13 @@ router.post('/', async (req, res) => {
 } catch (err) {
   res.status(400).json(err);
 }
+});
+
+router.get('/add', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('add');
 });
