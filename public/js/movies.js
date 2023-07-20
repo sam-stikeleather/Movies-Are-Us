@@ -57,7 +57,7 @@ async function newFormHandler(event) {
   event.preventDefault();
   const has_watched = document.querySelector('#has_seen:checked') ? true : false;
   // Send fetch request to add a new dish
-  const response = await fetch(`/home-routes`, {
+  const response = await fetch(`/home-routes/has_seen`, {
     method: 'POST',
     body: JSON.stringify({
       has_watched,
