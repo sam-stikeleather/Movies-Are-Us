@@ -13,6 +13,9 @@
             <th>
                 <button class="button is-text sortable" data-sort-key="rating">Rating</button>
             </th>
+            <th>
+                <button class="button is-text sortable" data-sort-key="rating">Watched</button>
+            </th>
         </tr>
     </thead>
     <tbody id="movie-table-body">
@@ -22,6 +25,7 @@
             <td>{{release_date}}</td>
             <td>{{genre}}</td>
             <td>{{rating}}</td>
+            <td>{{has_seen}}</td>
         </tr>
         {{/each}}
     </tbody>

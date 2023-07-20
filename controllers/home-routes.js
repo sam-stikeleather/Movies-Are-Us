@@ -95,21 +95,24 @@ router.get('/test', async (req, res) => {
 
 router.post('/has_seen', async (req, res) => {
   try {
-    const movie = await Movie.findOneAndUpdate(
-      { _id: req.body.movieId },
-      { has_seen: req.body.has_seen },
-      { new: true }
+    const { movieId, has_seen } = req.body;
+
+    const [affectedRows] = await Movie.update(
+      { has_seen },
+      { where: { id: movieId } }
     );
 
-    if (!movie) {
+    if (affectedRows === 0) {
       return res.status(404).json({ message: 'Movie not found' });
     }
 
-    res.status(200).json(movie);
+    const updatedMovie = await Movie.findByPk(movieId);
+    res.status(200).json(updatedMovie);
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
 
 router.get('/add', (req, res) => {
   if (req.session.logged_in) {
