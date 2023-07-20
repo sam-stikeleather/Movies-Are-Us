@@ -111,3 +111,12 @@ router.post('/has_seen', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.get('/add', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('partials/add');
+});
