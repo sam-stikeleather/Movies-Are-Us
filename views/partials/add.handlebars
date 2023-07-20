@@ -1,10 +1,32 @@
-<form class="add-movie-form">
-    <div class="field">
-        <input class="input is-normal" type="text" placeholder="Title">
-        <input class="input is-normal" type="text" placeholder="Release Date">
-        <input class="input is-normal" type="text" placeholder="Genre">
-        <input class="input is-normal" type="text" placeholder="Rating">
+<form class="add-form">
+  <div class="field">
+    <label for="title" class="label">Title:</label>
+    <div class="control">
+      <textarea id="title" name="title" class="textarea" rows="1">{{title}}</textarea>
     </div>
+  </div>
+
+  <div class="field">
+    <label for="release-date" class="label">Release Date:</label>
+    <div class="control">
+      <textarea id="release-date" name="release-date" class="textarea" rows="1">{{release_date}}</textarea>
+    </div>
+  </div>
+
+<div class="field">
+    <label for="genre" class="label">Genre:</label>
+    <div class="control">
+      <textarea id="genre" name="genre" class="textarea" rows="1">{{genre}}</textarea>
+    </div>
+  </div>
+
+<div class="field">
+    <label for="rating" class="label">Rating:</label>
+    <div class="control">
+      <textarea id="rating" name="rating" class="textarea" rows="1">{{rating}}</textarea>
+    </div>
+  </div>
+ 
 </form>
     <form class="has_seen_form">
   <div class="field">
