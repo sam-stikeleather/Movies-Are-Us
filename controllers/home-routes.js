@@ -113,11 +113,7 @@ router.post('/has_seen', async (req, res) => {
 
 router.get('/add', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
-
   res.render('partials/add',{loggedIn: req.session.logged_in });
-});
+}});
 
 module.exports = router;
