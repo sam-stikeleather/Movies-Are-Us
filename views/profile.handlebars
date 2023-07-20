@@ -1,0 +1,28 @@
+<table class="table is-fullwidth" table id="movie-table">
+    <thead>
+        <tr>
+            <th>
+                <button class="button is-text sortable" data-sort-key="title">Title</button>
+            </th>
+            <th>
+                <button class="button is-text sortable" data-sort-key="release_date">Release Date</button>
+            </th>
+            <th>
+                <button class="button is-text sortable" data-sort-key="genre">Genre</button>
+            </th>
+            <th>
+                <button class="button is-text sortable" data-sort-key="rating">Rating</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody id="movie-table-body">
+        {{#each movies}}
+        <tr>
+            <td><a href="movie-partial/{{this.id}}">{{title}}</a></td>
+            <td>{{release_date}}</td>
+            <td>{{genre}}</td>
+            <td>{{rating}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

@@ -1,3 +1,4 @@
 // const Rating = require('./rating');
 const Movie = require('./movie');
-module.exports = { Movie };
+const User = require('./user');
+module.exports = { Movie, User };
