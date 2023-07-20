@@ -6,7 +6,7 @@ async function newFormHandler(event) {
     const rating = document.querySelector('#rating').value;
     const has_seen = document.querySelector('#has_seen:checked') ? true : false;
     // Send fetch request to add a movie
-    const response = await fetch(`/api/users`, {
+    const response = await fetch(`/api/movies`, {
       method: 'POST',
       body: JSON.stringify({
         title,

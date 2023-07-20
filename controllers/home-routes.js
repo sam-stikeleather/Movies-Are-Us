@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     
     console.log(movies)
 
-    res.render('homepage', { movies });
+    res.render('homepage', { movies, loggedIn: req.session.logged_in  });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -27,7 +27,7 @@ router.get('/profile', async (req, res) => {
     
     console.log(movies)
 
-    res.render('profile', { movies });
+    res.render('profile', { movies, loggedIn: req.session.logged_in  });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -44,7 +44,7 @@ router.get('/movie-partial/:id', async (req, res) => {
     }
 
     const movie = dbMovieData.get({ plain: true });
-    res.render('partials/movie-partial', { movie, loggedIn: req.session.loggedIn });
+    res.render('partials/movie-partial', { movie, loggedIn: req.session.logged_in });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -65,7 +65,7 @@ router.get('/movie/:id', async (req, res) => {
     }
 
     const movie = dbMovieData.get({ plain: true });
-    res.render('movies', { movie, loggedIn: req.session.loggedIn });
+    res.render('movies', { movie, loggedIn: req.session.logged_in });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -74,7 +74,7 @@ router.get('/movie/:id', async (req, res) => {
 
 // GET login page
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect('/');
     return;
   }
@@ -82,7 +82,6 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-module.exports = router;
 
 router.get('/test', async (req, res) => {
   try {
@@ -113,10 +112,12 @@ router.post('/has_seen', async (req, res) => {
 });
 
 router.get('/add', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect('/profile');
     return;
   }
 
-  res.render('partials/add');
+  res.render('partials/add',{loggedIn: req.session.logged_in });
 });
+
+module.exports = router;

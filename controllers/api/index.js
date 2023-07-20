@@ -1,18 +1,12 @@
 const router = require('express').Router();
 const userRoutes = require('./user-routes');
-const {Movie} = require('../../models')
+const movieRoutes = require('./movie-routes');
+
 
 router.use('/users', userRoutes);
+router.use('/movies', movieRoutes);
 
-router.get('/movies', async (req, res) => {
-    try {
-      const movies = await Movie.findAll();
-      res.json(movies);
-    } catch (err) {
-      console.error('Error fetching movies:', err);
-      res.status(500).json({ message: 'Internal server error' });
-    }
-  });
+
   
 
 module.exports = router;

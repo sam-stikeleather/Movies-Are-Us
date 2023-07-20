@@ -43,6 +43,7 @@
         <div class="buttons">
           {{#if loggedIn}}
 <button id="logout" class="button is-danger">Logout</button>
+<script src="/js/logout.js"></script>
 {{else}}
 <a href="/login" class="button is-primary">Login</a>
 {{/if}}
@@ -61,9 +62,8 @@
   {{#if loggedIn}}
 
   {{/if}}  
-  <script src="/public/js/logout.js"></script>
-  <script src="/public/js/movies.js"></script>
-  <script src="/public/js/login.js"></script>
+  
+  
 </body>
 
 </html>
