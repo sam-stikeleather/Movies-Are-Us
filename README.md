@@ -47,3 +47,11 @@ Jessica Francis
 Special mention:
 Rich and Sasha
 
+## Links:
+
+GitHub Repo: 
+https://github.com/sam-stikeleather/Movies-Are-Us
+
+Heroku:
+https://arcane-everglades-12126-c502ea749e86.herokuapp.com/
+
